@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.softkeyboard" >
+
+    <uses-sdk android:minSdkVersion="21" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:largestWidthLimitDp="600"
+        android:normalScreens="true"
+        android:requiresSmallestWidthDp="300"
+        android:resizeable="false"
+        android:smallScreens="false"
+        android:xlargeScreens="true" />
+
+    <application android:label="@string/ime_name" >
+        <service
+            android:name="com.example.android.softkeyboard.SoftKeyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD" >
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+
+        <activity
+            android:name="com.example.android.softkeyboard.ImePreferences"
+            android:label="@string/settings_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <supports-screens
+            android:anyDensity="true"
+            android:compatibleWidthLimitDp="500"
+            android:largeScreens="true"
+            android:largestWidthLimitDp="600"
+            android:normalScreens="true"
+            android:requiresSmallestWidthDp="400"
+            android:resizeable="false"
+            android:smallScreens="false"
+            android:xlargeScreens="true" />
+    </application>
+
+</manifest>

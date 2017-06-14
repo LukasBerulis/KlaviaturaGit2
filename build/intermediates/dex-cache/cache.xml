@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lukas\Documents\Android Studio Projects\AnySoftgal\development-master-samples-SoftKeyboard (2)\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="146e8391976cf49b8f12d99dfff5117efcef966a">
+        <dex dex="C:\Users\Lukas\Documents\Android Studio Projects\AnySoftgal\development-master-samples-SoftKeyboard (2)\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_71f508df83199e560da72b4075b2ff5ccaa27637\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lukas\Documents\Android Studio Projects\AnySoftgal\development-master-samples-SoftKeyboard (2)\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Lukas\Documents\Android Studio Projects\AnySoftgal\development-master-samples-SoftKeyboard (2)\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0464543ec3af973be890a688bcd14ea34b457573\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lukas\Documents\AndroidStudioProjects\Klaviatura\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Lukas\Documents\AndroidStudioProjects\Klaviatura\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a24572ce4e717da260bed24ce7a72774075cc3c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Lukas\Documents\AndroidStudioProjects\Klaviatura\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f8155ee57a032ddf7f71de9f3a2b6c8ed560b0de">
+        <dex dex="C:\Users\Lukas\Documents\AndroidStudioProjects\Klaviatura\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_709f14974fb172f119c36ade24987c4911e3daab\classes.dex" />
+    </item>
+
+</items>

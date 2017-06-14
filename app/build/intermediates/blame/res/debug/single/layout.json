@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\build\\intermediates\\res\\merged\\debug\\layout\\keyboard_popup_keyboard.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\src\\main\\res\\layout\\keyboard_popup_keyboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\build\\intermediates\\res\\merged\\debug\\layout\\input.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\src\\main\\res\\layout\\input.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\build\\intermediates\\res\\merged\\debug\\layout\\keyboard_popup_keyboard.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\src\\main\\res\\layout\\keyboard_popup_keyboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preview.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\Klaviatura\\app\\src\\main\\res\\layout\\preview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\build\\intermediates\\res\\merged\\debug\\layout\\preview.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\src\\main\\res\\layout\\preview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\build\\intermediates\\res\\merged\\debug\\layout\\input.xml",
+        "source": "C:\\Users\\Lukas\\Documents\\AndroidStudioProjects\\KlaviaturaGit\\app\\src\\main\\res\\layout\\input.xml"
+    }
+]

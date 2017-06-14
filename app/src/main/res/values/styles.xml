@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="keyboard_1_style">
+        <item name="android:keyTextColor">#37474F</item>
+        <item name="android:keyBackground">@drawable/keybackground</item>
+        <item name="android:background">#eceff1</item>
+        <item name="android:keyPreviewLayout">@layout/preview</item>
+    </style>
+
+    <style name="background_switch">
+        <item name="android:keyBackground">@drawable/keybackground</item>
+    </style>
+    <!--#ECEFF1-->
+</resources>
