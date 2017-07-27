@@ -780,10 +780,6 @@ public class SoftKeyboard extends InputMethodService
         }
     }
     public void onPress(int primaryCode) {
-//        if (primaryCode == 10) {
-//            LatinKeyboard keyboard = (LatinKeyboard) mInputView.getKeyboard();
-//            keyboard.changeIcon(true, getResources());
-//        }
 
         Keyboard currentKeyboard = mInputView.getKeyboard();
         List<Keyboard.Key> keys = currentKeyboard.getKeys();
@@ -803,8 +799,6 @@ public class SoftKeyboard extends InputMethodService
                         key.icon = getDrawable(R.drawable.spacebar_pressed);
                         break;
                 }
-//                key.label = null;
-//                key.icon = getResources().getDrawable(android.R.drawable.ic_dialog_email);
                 break; // leave the loop once you find your match
             }
         }
@@ -835,8 +829,6 @@ public class SoftKeyboard extends InputMethodService
                         break;
 
                 }
-//                key.label = null;
-//                key.icon = getResources().getDrawable(android.R.drawable.ic_dialog_email);
                 break; // leave the loop once you find your match
             }
         }

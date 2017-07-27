@@ -89,30 +89,6 @@ public class LatinKeyboardView extends KeyboardView {
 
         List<Key> keys = getKeyboard().getKeys();
         for (Key key : keys) {
-//            if (key.codes[0] == -1) {
-//                if (!Symbols && !SymbolsShift) {
-//                    int movex = 46;
-//                    int movey = 36;
-//                    if (isCaps()) {
-//                        Drawable npd = getResources().getDrawable(R.drawable.caps);
-//
-//                        npd.setBounds(key.x + movex, key.y + movey,
-//                                key.x + npd.getMinimumWidth() + movex, key.y + npd.getMinimumHeight() + movey);
-//                        npd.draw(canvas);
-//                    } else if (isShifted()) {
-//                        Drawable npd = getResources().getDrawable(R.drawable.shift_on);
-//                        npd.setBounds(key.x + movex, key.y + movey,
-//                                key.x + npd.getMinimumWidth() + movex, key.y + npd.getMinimumHeight() + movey);
-//                        npd.draw(canvas);
-//                    } else {
-//                        Drawable npd = getResources().getDrawable(R.drawable.shift);
-//                        npd.setBounds(key.x + movex, key.y + movey,
-//                                key.x + npd.getMinimumWidth() + movex, key.y + npd.getMinimumHeight() + movey);
-//                        npd.draw(canvas);
-//                    }
-//
-//                }
-//            }
                 if (key.pressed) {
                      if (key.codes[0] != 10 && key.codes[0] != 32){
                         Drawable bg = getResources().getDrawable(R.drawable.darken);
@@ -129,10 +105,4 @@ public class LatinKeyboardView extends KeyboardView {
         //keyboard.setSpaceIcon(getResources().getDrawable(R.drawable.spacebar));
         invalidateAllKeys();
     }
-
-    public  void setShift()
-    {
-
-    }
-
 }
