@@ -17,6 +17,7 @@
 package com.example.android.softkeyboard;
 
 import android.app.Dialog;
+import android.graphics.drawable.Drawable;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -56,6 +57,10 @@ public class SoftKeyboard extends InputMethodService
      * that are primarily intended to be used for on-screen text entry.
      */
     static final boolean PROCESS_HARD_KEYS = true;
+    private final int ENTER_KEY = 10;
+    private final int SPACEBAR_KEY = 32;
+    private final int SHIFT_KEY = -1;
+
 
     private InputMethodManager mInputMethodManager;
 
@@ -146,15 +151,6 @@ public class SoftKeyboard extends InputMethodService
         mInputView.setKeyboard(nextKeyboard);
     }
 
-    /**
-     * Called by the framework when your view for showing candidates needs to
-     * be generated, like {@link #onCreateInputView}.
-     */
-//    @Override public View onCreateCandidatesView() {
-//        mCandidateView = new CandidateView(this);
-//        mCandidateView.setService(this);
-//        return mCandidateView;
-//    }
 
     /**
      * This is the main point where we do our initialization of the input method
@@ -279,13 +275,13 @@ public class SoftKeyboard extends InputMethodService
         setLatinKeyboard(mCurKeyboard);
         mInputView.closing();
         final InputMethodSubtype subtype = mInputMethodManager.getCurrentInputMethodSubtype();
-        mInputView.setSubtypeOnSpaceKey(subtype);
+//        mInputView.setSubtypeOnSpaceKey(subtype);
 //        mCapsLock = false;
     }
 
     @Override
     public void onCurrentInputMethodSubtypeChanged(InputMethodSubtype subtype) {
-        mInputView.setSubtypeOnSpaceKey(subtype);
+//        mInputView.setSubtypeOnSpaceKey(subtype);
     }
 
     /**
@@ -411,26 +407,26 @@ public class SoftKeyboard extends InputMethodService
                 // text being entered with a hard keyboard, we need to process
                 // it and do the appropriate action.
                 if (PROCESS_HARD_KEYS) {
-                    if (keyCode == KeyEvent.KEYCODE_SPACE
-                            && (event.getMetaState()&KeyEvent.META_ALT_ON) != 0) {
-                        // A silly example: in our input method, Alt+Space
-                        // is a shortcut for 'android' in lower case.
-                        InputConnection ic = getCurrentInputConnection();
-                        if (ic != null) {
-                            // First, tell the editor that it is no longer in the
-                            // shift state, since we are consuming this.
-                            ic.clearMetaKeyStates(KeyEvent.META_ALT_ON);
-                            keyDownUp(KeyEvent.KEYCODE_A);
-                            keyDownUp(KeyEvent.KEYCODE_N);
-                            keyDownUp(KeyEvent.KEYCODE_D);
-                            keyDownUp(KeyEvent.KEYCODE_R);
-                            keyDownUp(KeyEvent.KEYCODE_O);
-                            keyDownUp(KeyEvent.KEYCODE_I);
-                            keyDownUp(KeyEvent.KEYCODE_D);
-                            // And we consume this event.
-                            return true;
-                        }
-                    }
+//                    if (keyCode == KeyEvent.KEYCODE_SPACE
+//                            && (event.getMetaState()&KeyEvent.META_ALT_ON) != 0) {
+//                        // A silly example: in our input method, Alt+Space
+//                        // is a shortcut for 'android' in lower case.
+//                        InputConnection ic = getCurrentInputConnection();
+//                        if (ic != null) {
+//                            // First, tell the editor that it is no longer in the
+//                            // shift state, since we are consuming this.
+//                            ic.clearMetaKeyStates(KeyEvent.META_ALT_ON);
+//                            keyDownUp(KeyEvent.KEYCODE_A);
+//                            keyDownUp(KeyEvent.KEYCODE_N);
+//                            keyDownUp(KeyEvent.KEYCODE_D);
+//                            keyDownUp(KeyEvent.KEYCODE_R);
+//                            keyDownUp(KeyEvent.KEYCODE_O);
+//                            keyDownUp(KeyEvent.KEYCODE_I);
+//                            keyDownUp(KeyEvent.KEYCODE_D);
+//                            // And we consume this event.
+//                            return true;
+//                        }
+//                    }
                     if (mPredictionOn && translateKeyDown(keyCode, event)) {
                         return true;
                     }
@@ -633,12 +629,20 @@ public class SoftKeyboard extends InputMethodService
         Keyboard currentKeyboard = mInputView.getKeyboard();
         if (mQwertyKeyboard == currentKeyboard) {
             // Alphabet keyboard
-            checkToggleCapsLock();
-            if (mInputView.isCaps())
-            {
+            setCapsLock();
+            if (mInputView.isCaps()) {
                 mInputView.setShifted(!mInputView.isShifted());
             }
             mInputView.setShifted(mCapsLock || !mInputView.isShifted());
+
+            //set shift icons
+            if (mInputView.isCaps()) {
+                setShiftIcon(getDrawable(R.drawable.caps));
+            } else if (mInputView.isShifted()) {
+                setShiftIcon(getDrawable(R.drawable.shift_on));
+            } else {
+                setShiftIcon(getDrawable(R.drawable.shift));
+            }
         } else if (currentKeyboard == mSymbolsKeyboard) {
             mSymbolsKeyboard.setShifted(true);
             setLatinKeyboard(mSymbolsShiftedKeyboard);
@@ -655,6 +659,7 @@ public class SoftKeyboard extends InputMethodService
             if (mInputView.isShifted()) {
                 primaryCode = Character.toUpperCase(primaryCode);
                 if (!mCapsLock){
+                    setShiftIcon(getDrawable(R.drawable.shift));
                     mInputView.setShifted(false);
                 }
             }
@@ -692,27 +697,26 @@ public class SoftKeyboard extends InputMethodService
         mInputMethodManager.switchToNextInputMethod(getToken(), false /* onlyCurrentIme */);
     }
 
-    private void checkToggleCapsLock() {
+    private void setCapsLock() {
         boolean changedShift = false;
         long now = System.currentTimeMillis();
         if (mCapsLock) {
+            //turn off caps lock
             mCapsLock = false;
             mLastShiftTime = 0;
         }
         else {
             if (mLastShiftTime + 800 > now) {
-                mCapsLock = !mCapsLock;
+                //set caps
+                mCapsLock = true;
                 mLastShiftTime = 0;
 
             } else {
+                //set shift
                 mLastShiftTime = now;
             }
         }
-        if (mCapsLock) {
-            mInputView.setCaps(true);
-        } else {
-            mInputView.setCaps(false);
-        }
+        mInputView.setCaps(mCapsLock);
     }
     
     private String getWordSeparators() {
@@ -762,12 +766,48 @@ public class SoftKeyboard extends InputMethodService
     public void swipeUp() {
     }
 
+    public void setShiftIcon(Drawable icon) {
+        Keyboard currentKeyboard = mInputView.getKeyboard();
+        List<Keyboard.Key> keys = currentKeyboard.getKeys();
+
+        for (Keyboard.Key key:
+                keys) {
+            if (key.codes[0] == SHIFT_KEY) {
+                key.label = null;
+                key.icon = icon;
+                break; // leave the loop once you find your match
+            }
+        }
+    }
     public void onPress(int primaryCode) {
 //        if (primaryCode == 10) {
 //            LatinKeyboard keyboard = (LatinKeyboard) mInputView.getKeyboard();
 //            keyboard.changeIcon(true, getResources());
 //        }
 
+        Keyboard currentKeyboard = mInputView.getKeyboard();
+        List<Keyboard.Key> keys = currentKeyboard.getKeys();
+        mInputView.invalidateKey(primaryCode);
+
+        for (Keyboard.Key key:
+             keys) {
+            if(key.codes[0] == primaryCode)
+            {
+                switch (key.codes[0]) {
+                    case ENTER_KEY:
+                        key.label = null;
+                        key.icon = getDrawable(R.drawable.enter_dark_pressed);
+                        break;
+                    case SPACEBAR_KEY:
+                        key.label = null;
+                        key.icon = getDrawable(R.drawable.spacebar_pressed);
+                        break;
+                }
+//                key.label = null;
+//                key.icon = getResources().getDrawable(android.R.drawable.ic_dialog_email);
+                break; // leave the loop once you find your match
+            }
+        }
         if (primaryCode == -1 || primaryCode == -4 || primaryCode == 10 || primaryCode == -2 || primaryCode == -5 || primaryCode == 32){
 
         } else {
@@ -776,10 +816,31 @@ public class SoftKeyboard extends InputMethodService
     }
 
     public void onRelease(int primaryCode) {
-//        if (primaryCode == 10) {
-//            LatinKeyboard keyboard = (LatinKeyboard) mInputView.getKeyboard();
-//            keyboard.changeIcon(false, getResources());
-//        }
+        Keyboard currentKeyboard = mInputView.getKeyboard();
+        List<Keyboard.Key> keys = currentKeyboard.getKeys();
+        mInputView.invalidateKey(primaryCode);
+
+        for (Keyboard.Key key:
+                keys) {
+            if(key.codes[0] == primaryCode)
+            {
+                switch (key.codes[0]) {
+                    case ENTER_KEY:
+                        key.label = null;
+                        key.icon = getDrawable(R.drawable.enter);
+                        break;
+                    case SPACEBAR_KEY:
+                        key.label = null;
+                        key.icon = getDrawable(R.drawable.spacebar);
+                        break;
+
+                }
+//                key.label = null;
+//                key.icon = getResources().getDrawable(android.R.drawable.ic_dialog_email);
+                break; // leave the loop once you find your match
+            }
+        }
+
         mInputView.setPreviewEnabled(false);
     }
 

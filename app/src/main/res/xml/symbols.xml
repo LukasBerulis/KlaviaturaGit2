@@ -79,8 +79,7 @@
         <Key android:codes="-101"
                 android:keyWidth="0%p" />
         <Key android:codes="44" android:keyLabel="," android:keyWidth="10%p" />
-        <Key android:codes="32" android:keyIcon="@drawable/spacebar" android:keyWidth="50%p"
-                android:isRepeatable="true"/>
+        <Key android:codes="32" android:keyIcon="@drawable/spacebar" android:keyWidth="50%p"/>
         <Key android:codes="46"
             android:keyLabel="." android:keyWidth="10%p" />
         <Key android:codes="10" android:keyIcon="@drawable/enter"

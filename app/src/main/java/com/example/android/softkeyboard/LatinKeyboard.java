@@ -107,14 +107,6 @@ public class LatinKeyboard extends Keyboard {
      * This looks at the ime options given by the current editor, to set the
      * appropriate label on the keyboard's enter key (if it has one).
      */
-    void changeIcon(boolean onPress, Resources res)
-    {
-        if (onPress) {
-//            mEnterKey.icon = res.getDrawable(R.drawable.enter_pressed);
-        }
-        else
-            mEnterKey.icon = res.getDrawable(R.drawable.enter);
-    }
 
     void changeBackground(boolean onPress, Resources res){
 
@@ -148,12 +140,6 @@ public class LatinKeyboard extends Keyboard {
                 mEnterKey.label = null;
                 mEnterKey.iconPreview = null;
                 break;
-        }
-    }
-
-    void setSpaceIcon(final Drawable icon) {
-        if (mSpaceKey != null) {
-            mSpaceKey.icon = icon;
         }
     }
 

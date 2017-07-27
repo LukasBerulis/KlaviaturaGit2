@@ -97,7 +97,7 @@
         <Key android:codes="-101"
                 android:keyWidth="0%p"/>
         <Key android:codes="32"
-                android:keyWidth="50%p" android:isRepeatable="true"
+                android:keyWidth="50%p"
             android:keyIcon="@drawable/spacebar"/>
         <Key android:codes="46" android:keyLabel="."
                 android:keyWidth="10%p"/>
