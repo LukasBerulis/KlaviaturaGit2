@@ -2,7 +2,7 @@
 Inspired by Google Keyboard. 
 What I did in short:
 * Modified key layouts, characters. Removed unneeded keys and added new, like Lithuanian characters, material design key icons.
-* Changed background color, modified OnDraw() method to change key background icon for enter and spacebar keys (last screenshot) or background color for normal keys. Pressed key state icon coordinates are hardcoded so it probably will be placed in odd places on the screen.
+* Changed background color, modified OnDraw() method to change key background icon for enter and spacebar keys (last screenshot) or background color for normal keys.
 * Changed shift and caps behavior. Double clicking enables caps, single clicking disables. Shift works like normal.
 * Three shift key icon states: Normal, shift and Caps (can be seen in screenshots).
 * Removed text prediction.  
