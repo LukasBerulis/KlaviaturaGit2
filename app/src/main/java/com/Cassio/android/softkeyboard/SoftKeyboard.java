@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.softkeyboard;
+package com.Cassio.android.softkeyboard;
 
 import android.app.Dialog;
 import android.graphics.drawable.Drawable;
