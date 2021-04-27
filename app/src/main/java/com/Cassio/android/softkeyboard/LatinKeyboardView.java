@@ -26,7 +26,6 @@ import android.util.AttributeSet;
 import android.view.inputmethod.InputMethodSubtype;
 
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
 import java.util.List;
 
@@ -131,7 +130,6 @@ public class LatinKeyboardView extends KeyboardView {
                     drawable.draw(canvas);
                 }
             }
-
         }
         super.onDraw(canvas);
     }

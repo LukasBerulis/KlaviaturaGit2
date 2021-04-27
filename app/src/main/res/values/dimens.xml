@@ -20,7 +20,7 @@
 
 <resources>
     <dimen name="key_height">48dp</dimen>
-    <dimen name="key_height_tall">72dp</dimen>
+    <dimen name="key_height_tall">58dp</dimen>
     <dimen name="candidate_font_height">16sp</dimen>
     <dimen name="candidate_vertical_padding">6sp</dimen>
 </resources>
