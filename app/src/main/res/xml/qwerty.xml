@@ -20,16 +20,15 @@
 
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:emojicon="http://schemas.android.com/apk/res-auto"
-    android:keyWidth="10%p"
-    android:horizontalGap="0px"
-    android:verticalGap="0px"
-    android:keyHeight="@dimen/key_height"
-    >
+    android:keyWidth="8.7%p"
+    android:horizontalGap="5dp"
+    android:verticalGap="10dp"
+    android:keyHeight="@dimen/key_height" >
     <!--android:background="@android:color/black"-->
 
 
     <Row>
-        <Key android:codes="261" android:keyLabel="ą" android:horizontalGap="5.0%p" android:keyEdgeFlags="left"/>
+        <Key android:codes="261" android:keyLabel="ą" android:horizontalGap="6.0%p" android:keyEdgeFlags="left"/>
         <Key android:codes="269" android:keyLabel="č"/>
         <Key android:codes="281" android:keyLabel="ę"/>
         <Key android:codes="279" android:keyLabel="ė"/>
@@ -55,7 +54,7 @@
     </Row>
     
     <Row>
-        <Key android:codes="97" android:keyLabel="a" android:horizontalGap="5%p" 
+        <Key android:codes="97" android:keyLabel="a" android:horizontalGap="6%p"
                 android:keyEdgeFlags="left"/>
         <Key android:codes="115" android:keyLabel="s"/>
         <Key android:codes="100" android:keyLabel="d"/>

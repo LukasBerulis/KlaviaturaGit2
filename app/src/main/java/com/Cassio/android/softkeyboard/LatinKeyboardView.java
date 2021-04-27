@@ -25,6 +25,9 @@ import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
 import android.view.inputmethod.InputMethodSubtype;
 
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+
 import java.util.List;
 
 public class LatinKeyboardView extends KeyboardView {
@@ -82,11 +85,15 @@ public class LatinKeyboardView extends KeyboardView {
 
     @Override
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
 
         List<Key> keys = getKeyboard().getKeys();
         for (Key key : keys) {
-                if (key.pressed) {
+//            if (key.codes[0] == 102) {
+                Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround);
+                drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+                drawable.draw(canvas);
+//            }
+            if (key.pressed) {
                      if (key.codes[0] != 10 && key.codes[0] != 32){
                         Drawable bg = getResources().getDrawable(R.drawable.darken);
                         bg.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
@@ -95,6 +102,7 @@ public class LatinKeyboardView extends KeyboardView {
                 }
 
         }
+        super.onDraw(canvas);
     }
 
     void setSubtypeOnSpaceKey(final InputMethodSubtype subtype) {

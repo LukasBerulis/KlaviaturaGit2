@@ -2,9 +2,10 @@
 
     <!-- Base application theme. -->
     <style name="keyboard_1_style">
-        <item name="android:keyTextColor">#37474F</item>
+        <item name="android:keyTextColor">#000000</item>
         <item name="android:keyBackground">@drawable/transparent</item>
-        <item name="android:background">#eceff1</item>
+<!--        <item name="android:background">#e7eaed</item>-->
+        <item name="android:background">#3570b3</item>
         <item name="android:keyPreviewLayout">@layout/preview</item>
     </style>
 
