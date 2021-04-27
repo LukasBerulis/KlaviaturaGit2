@@ -54,7 +54,7 @@ public class LatinKeyboardView extends KeyboardView {
     }
 
     public boolean isSymbolsShift() {
-        return  SymbolsShift;
+        return SymbolsShift;
     }
 
     public void setSymbols(boolean set) {
@@ -88,25 +88,56 @@ public class LatinKeyboardView extends KeyboardView {
 
         List<Key> keys = getKeyboard().getKeys();
         for (Key key : keys) {
-//            if (key.codes[0] == 102) {
-                Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround);
-                drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
-                drawable.draw(canvas);
-//            }
-            if (key.pressed) {
-                     if (key.codes[0] != 10 && key.codes[0] != 32){
-                        Drawable bg = getResources().getDrawable(R.drawable.darken);
-                        bg.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
-                        bg.draw(canvas);
-                     }
+            int heightOffset = Math.round(Converter.INSTANCE.dpToPx(this, 8));
+            int sideMargin = Math.round(Converter.INSTANCE.dpToPx(this, 4));
+            if (key.codes[0] == -1 || key.codes[0] == -2) {
+                if (key.pressed) {
+                    Drawable bg = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special_pressed);
+                    bg.setBounds(key.x + sideMargin, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    bg.draw(canvas);
+                } else {
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special);
+                    drawable.setBounds(key.x + sideMargin, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    drawable.draw(canvas);
                 }
+            } else if (key.codes[0] == 44 || key.codes[0] == 46) {
+                if (key.pressed) {
+                    Drawable bg = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special_pressed);
+                    bg.setBounds(key.x, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    bg.draw(canvas);
+                } else {
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special);
+                    drawable.setBounds(key.x, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    drawable.draw(canvas);
+                }
+            } else if (key.codes[0] == -5) {
+                if (key.pressed) {
+                    Drawable bg = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special_pressed);
+                    bg.setBounds(key.x + sideMargin, key.y + heightOffset, key.x + key.width - sideMargin, key.y + key.height + heightOffset);
+                    bg.draw(canvas);
+                } else {
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround_special);
+                    drawable.setBounds(key.x, key.y + heightOffset, key.x + key.width - sideMargin, key.y + key.height + heightOffset);
+                    drawable.draw(canvas);
+                }
+            } else if (key.codes[0] != 10) {
+                if (key.pressed) {
+                    Drawable bg = getResources().getDrawable(R.drawable.key_backround_pressed);
+                    bg.setBounds(key.x, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    bg.draw(canvas);
+                } else {
+                    Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.key_backround);
+                    drawable.setBounds(key.x, key.y + heightOffset, key.x + key.width, key.y + key.height + heightOffset);
+                    drawable.draw(canvas);
+                }
+            }
 
         }
         super.onDraw(canvas);
     }
 
     void setSubtypeOnSpaceKey(final InputMethodSubtype subtype) {
-        final LatinKeyboard keyboard = (LatinKeyboard)getKeyboard();
+        final LatinKeyboard keyboard = (LatinKeyboard) getKeyboard();
         //keyboard.setSpaceIcon(getResources().getDrawable(R.drawable.spacebar));
         invalidateAllKeys();
     }

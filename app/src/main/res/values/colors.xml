@@ -23,4 +23,5 @@
     <color name="candidate_other">#ff808080</color>
     <color name="candidate_background">#bbffffff</color>
     <color name="key_background">#ffffffff</color>
+    <color name="keyboard_background">#e7eaed</color>
 </resources>

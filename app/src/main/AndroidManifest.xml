@@ -19,7 +19,6 @@
 
 
     </application>
-    <uses-sdk android:minSdkVersion="17"/>
     <supports-screens android:resizeable="false"
         android:smallScreens="false"
         android:normalScreens="true"

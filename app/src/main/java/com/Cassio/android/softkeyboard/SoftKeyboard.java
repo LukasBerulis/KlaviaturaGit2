@@ -34,6 +34,8 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,6 +128,8 @@ public class SoftKeyboard extends InputMethodService
         mInputView.setOnKeyboardActionListener(this);
 
         setLatinKeyboard(mQwertyKeyboard);
+
+        getWindow().getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.keyboard_background));
         return mInputView;
     }
 
