@@ -12,6 +12,20 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../..">
       <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/0" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/1" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/2" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/3" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/5" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/6" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/7" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/8" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/9" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/a" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/b" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/c" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/d" />
+      <excludeFolder url="file://$MODULE_DIR$/../sonarlint/issuestore/f" />
       <excludeFolder url="file://$MODULE_DIR$/../../build" />
     </content>
     <orderEntry type="inheritedJdk" />
